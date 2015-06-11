@@ -10,4 +10,4 @@ class Join(models.Model):
 
 	def __unicode__(self):
 		#self.email is class variable because its declared in the class method
-		return "%s" %(self.email) 
+		return "%s" % (self.email) 
