@@ -4,7 +4,8 @@ from django.db import models
 #inherance from django class
 
 class Join(models.Model):
-	email = models.EmailField()
+	ref_id =  models.CharField(max_length=120, default='ABC', unique=True)
+	email = models.EmailField(unique=True)
 	ip_address = models.CharField(max_length=120, default='ABC')
 	timestamp = models.DateTimeField(auto_now_add = True, auto_now = False)
 	updated = models.DateTimeField(auto_now_add = False, auto_now = True)
@@ -12,9 +13,5 @@ class Join(models.Model):
 	def __unicode__(self):
 		#self.email is class variable because its declared in the class method
 		return "%s" % (self.email) 
-	#insall south
-	#ensure model is synced in db
-	#convert model to south with python manage.py convert_to_south appname
-	#make changes to model (eg add new fields: ip_address = models.CharField(max_length=120, default='ABC'))
-	#Run schemamigration: python manage.py schemamigration joins --auto
-	# run python manage.py migrate
+	class Meta:
+		unique_together = ("email", "ref_id",)
