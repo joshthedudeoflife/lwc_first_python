@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, Http404
 
 # Create your views here.
 from .forms import EmailForm, JoinForm
@@ -28,10 +28,24 @@ def get_ref_id():
 		return ref_id
 
 def share(request, ref_id):
-	#print ref_id
-	context = {"ref_id": ref_id}
-	template = "share.html"
-	return render(request, template, context)
+	try:
+		join_obj = Join.objects.get(ref_id=ref_id)
+		print join_obj
+		print "join obj"
+		obj = Join.objects.get(id=join_id)
+		other = Join.objects.filter(friend=obj)
+		print other
+		print "this is other"
+		friends_referred = Join.objects.filter(friend=join_obj)
+		print friends_referred
+		count = join_obj.referral.all().count()
+		ref_url = settings.SHARE_URL + str(join_obj.ref_id)
+		print ref_url
+		context = {"ref_id": join_obj.ref_id, "count": count, "ref_url": ref_url}
+		template = "share.html"
+		return render(request, template, context)
+	except:
+		raise Http404
 
 def home(request):
 	try:
@@ -53,6 +67,8 @@ def home(request):
 			new_join_old.save()
 		#print friends that joined
 		print Join.objects.filter(friend=obj).count()
+		print "these are friends"
+		print Join.objects.filter(friend=obj)
 		print obj.referral.all().count()
 		#redirect here
 
