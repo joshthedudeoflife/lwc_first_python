@@ -78,6 +78,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+SHARE_URL = "http://127.0.0.1:8000/?ref="
+
 TEMPLATE_DIRS = (
     BASE_DIR + "/templates/",
 #'/Users/joshthedudeoflife/lwc/src/templates',

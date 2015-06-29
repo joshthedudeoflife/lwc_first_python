@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render, HttpResponseRedirect, Http404
 
 # Create your views here.
@@ -30,14 +31,7 @@ def get_ref_id():
 def share(request, ref_id):
 	try:
 		join_obj = Join.objects.get(ref_id=ref_id)
-		print join_obj
-		print "join obj"
-		obj = Join.objects.get(id=join_id)
-		other = Join.objects.filter(friend=obj)
-		print other
-		print "this is other"
 		friends_referred = Join.objects.filter(friend=join_obj)
-		print friends_referred
 		count = join_obj.referral.all().count()
 		ref_url = settings.SHARE_URL + str(join_obj.ref_id)
 		print ref_url
@@ -45,7 +39,7 @@ def share(request, ref_id):
 		template = "share.html"
 		return render(request, template, context)
 	except:
-		raise Http404
+	 	raise Http404
 
 def home(request):
 	try:
