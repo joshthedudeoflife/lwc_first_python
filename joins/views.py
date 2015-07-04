@@ -60,10 +60,10 @@ def home(request):
 			new_join_old.ip_address = get_ip(request)
 			new_join_old.save()
 		#print friends that joined
-		print Join.objects.filter(friend=obj).count()
-		print "these are friends"
-		print Join.objects.filter(friend=obj)
-		print obj.referral.all().count()
+		# print Join.objects.filter(friend=obj).count()
+		# print "these are friends"
+		# print Join.objects.filter(friend=obj)
+		# print obj.referral.all().count()
 		#redirect here
 
 		return HttpResponseRedirect("/%s" %(new_join_old.ref_id))

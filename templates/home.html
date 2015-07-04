@@ -1,11 +1,28 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block content %}
+<div class="jumbotron" style='background-color: white;'>
+      <div class="container">
+        <div class='col-sm-6'>
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <a class="btn btn-success btn-lg" href="#" role="button">Learn more &raquo;</a>
+      </div>
+        <div class='col-sm-6'>
+<img src="{% static 'img/Pearl-Jam-pearl-jam-584014_1024_768.jpeg'%}" class='img-responsive' />
+      </div>
+      </div>
+    </div>
+   
+	<div class='container' style='text-align:center;'>
+<hr /> 
 	<h1>hi</h1>
+
 	<form method="POST" action="" >{% csrf_token %}
 	{{ form.as_p }}
 <input type='submit' value='Join' class='btn' />
 </form>
+<div>
 {% endblock %}
 
 <!-- as_p means paragraph-->

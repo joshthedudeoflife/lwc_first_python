@@ -1,9 +1,23 @@
 {% extends "base.html" %}
-
+{% load staticfiles %}
 {% block content %}
+<div class="jumbotron" style="background-color: white;">
+      <div class="container">
+        <div class='col-sm-6 pull-right'>
+        <h1>Hello, world!</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <a class="btn btn-success btn-lg" href="#" role="button">Learn more &raquo;</a>
+      </div>
+        <div class='col-sm-6 pull-left'>
+<img src="{% static 'img/pearl-jam-wallpaper-hd-5-792781.jpeg'%}" class='img-responsive' />
+      </div>
+      </div>
+    </div>
+<div class='container'>
 	{{ref_id}}
 	{{count}}
 	{{ref_url}}
+</div>
 {% endblock %}
 
 <!-- as_p means paragraph-->
