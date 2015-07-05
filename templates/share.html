@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 {% load staticfiles %}
+{% block styles %}
+<style>
+.featured-row {
+	border:none !important;
+}
+</style>
+
+{% endblock %}
 {% block jquery %}
 
 $signUpCount = {{ count }};
@@ -178,11 +186,51 @@ Joined number is: {{ count }}<br/>
 			</ul>
 		</span>
 		<hr/>
+
 	</div>
 
+
 </div>
-
-
+	<hr/>
+<div class='row featured-row'>
+  <div class='col-sm-12'>
+  <h1>Staying Alive</h1>
+  <div class='row'>
+  <div class='col-sm-3'>
+  	<i class="fa fa-upload fa-3x"></i>
+      <h2>Feature</h2>
+      <p class='lead'>
+      Some feature text goes here.
+      </p>
+  </div>
+   
+   <div class='col-sm-3'>
+      <i class="fa fa-upload fa-3x"></i>
+      <h2>Feature</h2>
+      <p class='lead'>
+      Some feature text goes here.
+      </p>
+    </div>
+    
+    <div class='col-sm-3'>
+      <i class="fa fa-upload fa-3x"></i>
+      <h2>Feature</h2>
+      <p class='lead'>
+      Some feature text goes here.
+      </p>
+    </div>
+    
+    <div class='col-sm-3'>
+      <i class="fa fa-upload fa-3x"></i>
+      <h2>Feature</h2>
+      <p class='lead'>
+      Some feature text goes here.
+      </p>
+    </div>
+   
+   </div>
+  </div>
+  </div>
 
 </div>
 {% endblock %}
